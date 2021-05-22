@@ -1,4 +1,4 @@
-import extensions.Registry.getNewStringExtensions
+import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
 
 object Start {
 
@@ -19,7 +19,11 @@ object Start {
     println("+1 ?997) 411-3097".isValidPhoneNumber())
     println("+1 (?)997) 411-309a".isValidPhoneNumber())
 
+    println("---------------------------------")
 
+    val negativeAge: Int = -1
+    println(1.isValidAge())
+    println(negativeAge.isValidAge())
 
   }
 

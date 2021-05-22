@@ -12,4 +12,8 @@ object Registry {
     new CharExtensions(c)
   }
 
+  implicit def getNewIntExtensions(num: Int): IntExtensions = {
+    new IntExtensions(num)
+  }
+
 }
