@@ -1,4 +1,6 @@
 import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
+import models.Client
+import services.ReadDataFromExcel
 
 object Start {
 
@@ -25,6 +27,11 @@ object Start {
     println(1.isValidAge())
     println(negativeAge.isValidAge())
 
+    println("*********************************************************")
+
+    println("Read data from excel")
+    val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData()
+    println("end reading data from excel")
   }
 
 }
