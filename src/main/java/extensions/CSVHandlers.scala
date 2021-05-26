@@ -2,7 +2,7 @@ package extensions
 
 import models.{Person, Request}
 
-object Handlers {
+object CSVHandlers {
 
   implicit class StringExt(str:String){
     def getPerson(delimiter: String): Person = {

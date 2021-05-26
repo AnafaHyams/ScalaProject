@@ -2,7 +2,7 @@ package services
 import com.fasterxml.jackson.core.`type`.TypeReference
 import models.Person
 import com.fasterxml.jackson.databind.{DeserializationFeature, ObjectMapper}
-import extensions.Handlers.StringExt
+import extensions.CSVHandlers.StringExt
 
 import java.io.File
 import scala.io.Source
