@@ -9,4 +9,4 @@ case class Person @JsonCreator() (@JsonProperty("age") age: Int,
                    @JsonProperty("company") company: String,
                    @JsonProperty("email") email: String,
                    @JsonProperty("phone") phone: String,
-                   @JsonProperty("address") address: String)
+                   @JsonProperty("address") address: String) extends Serializable
