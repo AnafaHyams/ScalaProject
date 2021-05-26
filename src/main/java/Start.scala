@@ -1,5 +1,6 @@
-import extensions.Handlers.StringExt
+import extensions.CSVHandlers.StringExt
 import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
+import extensions.list.Ext.{ClientListExtensions, PersonListExtensions}
 import models.{Client, Person}
 import services.{ReadDataFromExcel, ReadDataFromJson}
 
@@ -54,6 +55,10 @@ object Start {
     val request = requestList.head
 
 
+    val validClientsList: List[Client] = clientsListFromExcel.validate()
+    val validPersonsList: List[Person] = personsListFromJson.validate()
+
+    val personFirst = validPersonsList.head
   }
 
 }
