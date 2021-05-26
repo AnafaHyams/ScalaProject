@@ -1,6 +1,6 @@
 import extensions.CSVHandlers.StringExt
 import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
-import extensions.list.Ext.{ClientListExtensions, PersonListExtensions}
+import extensions.ListExtensions.{ClientListExtensions, PersonListExtensions}
 import models.{Client, Person}
 import services.{ReadDataFromExcel, ReadDataFromJson}
 
