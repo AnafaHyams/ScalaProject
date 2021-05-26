@@ -1,13 +1,9 @@
-package extensions.list
+package extensions
 
 import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
 import models.{Client, Person}
 
-import scala.collection.mutable.ListBuffer
-import scala.jdk.CollectionConverters._
-
-
-object  Ext {
+object ListExtensions {
   /*implicit class IntExt(value: Int) {
     def isPositiveNumber() : Boolean = value > 0
   }*/
