@@ -65,6 +65,11 @@ object Start {
     println("Filter by age minimum value, maximum value in two tables")
     println(s"There are ${listOfUsersWithAgeBetween.length} users with age between ${request.minAge} to ${request.maxAge}")
 
+    println("Task 4:")
+    val listOfUsersStartsWithePrefix: List[User] = userList.filter(user => user.firstName.startsWith(request.prefixName))
+    println("Get all people whose names start with a certain prefix. As like in request.json")
+    println(s"There are ${listOfUsersStartsWithePrefix.length} users with Prefix name ${request.prefixName}")
+
 
     //val filteredUsersListByRequest: List[User] = userList.filter(user => user.filterByRequest(request))
     //val clientsListBy_MS_G_NOC: List[Client] = validClientsList.filter(client => client.filterByRequest(request)) // last task
