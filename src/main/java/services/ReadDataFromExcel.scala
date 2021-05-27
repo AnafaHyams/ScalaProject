@@ -1,23 +1,17 @@
 package services
 
-//import org.apache.xmlbeans.
-import org.apache.commons._
 import org.apache.poi.hssf.usermodel.{HSSFSheet, HSSFWorkbook}
 import org.apache.poi.ss.usermodel.Row
 import org.apache.poi.ss.usermodel.Cell
-import org.apache.poi.xssf.usermodel.{XSSFSheet, XSSFWorkbook}
 
 import java.io.FileInputStream
 import java.util
-//.poi.ss.usermodel.{ DataFormatter, WorkbookFactory, Row }
-import org.apache.xmlbeans._
 import java.io.File
-//import collection.JavaConversions._
 
 import models.Client
 
-object ReadDataFromExcel extends DataReader {
-  override def readData(): List[Client] = {
+object ReadDataFromExcel{
+  def readData(clientsFileName: String): List[Client] = {
 
     var clientsList: List[Client] = Nil
 
@@ -33,7 +27,7 @@ object ReadDataFromExcel extends DataReader {
     var maritalStatus: String = ""
     var numOfChildren: Int = 0
 
-    val file = new File("data/client.xls")
+    val file = new File(clientsFileName)
     val fis: FileInputStream = new FileInputStream(file)
     val workbook: HSSFWorkbook = new HSSFWorkbook(fis)
     val firstSheet: HSSFSheet = workbook.getSheetAt(0)

@@ -13,14 +13,14 @@ object ReadDataFromJson {
 
   val mapper: ObjectMapper = new ObjectMapper
 
-  def readData(): List[Person] = {
-    val jsonFile = new File("data/persons.json")
+  def readData(personsFileName: String): List[Person] = {
+    //val jsonFile = new File(personsFileName)
 
     //val personsList: List[Person] = mapper.readValue(jsonFile, new TypeReference[List[Person]]() {})
     //val personsList: List[Person] = mapper.readValue(jsonFile, new TypeReference[List[Person]]() {}).asJavaCollection.asScala.toList
 
     // JUST FOR NOW: READ Persons data from csv file and return persons list
-    val personsCSV = Source.fromFile("data/persons.csv").getLines().toList
+    val personsCSV = Source.fromFile(personsFileName).getLines().toList
     val personsList = personsCSV.map(person => person.getPerson(","))
 
     personsList

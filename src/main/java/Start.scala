@@ -3,7 +3,7 @@ import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
 import extensions.ListExtensions.{ClientListExtensions, PersonListExtensions}
 import extensions.ObjectTypeChangingExtensions.{SwitchFromClientToUserObject, SwitchFromPersonToUserObject}
 import models.{Client, Person, User}
-import services.{ReadDataFromExcel, ReadDataFromJson}
+import services.{DataLocationReader, ReadDataFromExcel, ReadDataFromJson}
 
 import scala.io.Source
 
@@ -32,8 +32,12 @@ object Start {
     println("*********************************************************")
 */
 
-    val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData()
-    val personsListFromJson: List[Person] = ReadDataFromJson.readData()
+  val clientsFileName = DataLocationReader.clientFileName
+  val personsFileName = DataLocationReader.personFileName
+  val requestFileName = DataLocationReader.requestFileName
+
+    val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData(clientsFileName)
+    val personsListFromJson: List[Person] = ReadDataFromJson.readData(personsFileName)
 
 /*
     //PersonsList
@@ -41,8 +45,9 @@ object Start {
     val personsList = personsCSV.map(person => person.getPerson(","))
     personsList.foreach(person => println(person))
 */
-    // Request
-    val requestCSV = Source.fromFile("data/request.csv").getLines().toList
+
+      // Request
+    val requestCSV = Source.fromFile(requestFileName).getLines().toList
     val requestList = requestCSV.map(request => request.getRequest(","))
     //requestList.foreach(person => println(person))
     val request = requestList.head
