@@ -31,13 +31,9 @@ object Start {
 
     println("*********************************************************")
 */
-    println("Read data from excel")
-    val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData()
-    println("end reading data from excel")
 
-    println("Read data from json")
+    val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData()
     val personsListFromJson: List[Person] = ReadDataFromJson.readData()
-    println("end reading data from json")
 
 /*
     //PersonsList
@@ -65,6 +61,7 @@ object Start {
     // Task 3: Filter by age minimum value, maximum value in two tables
     val listOfUsersWithAgeBetween: List[User] = userList.filter(user => user.age > request.minAge)
       .filter(user => user.age < request.maxAge)
+    println("Task 3:")
     println("Filter by age minimum value, maximum value in two tables")
     println(s"There are ${listOfUsersWithAgeBetween.length} users with age between ${request.minAge} to ${request.maxAge}")
 
