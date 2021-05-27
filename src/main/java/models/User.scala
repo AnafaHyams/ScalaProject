@@ -1,7 +1,5 @@
 package models
 
-import scala.collection.mutable.ListBuffer
-
 trait User {
   val firstName: String
   val lastName: String
@@ -10,11 +8,9 @@ trait User {
   val email: String
   val phoneNumber: String
 
-  //def filterByRequest(request: Request)
 
   def filterByRequest(request: Request): Boolean = {
-    //val filteredListByRequest = new ListBuffer[User]()
-    //filteredListByRequest += this
+
     request match {
       case Request(minAge,maxAge,gender,prefixName,maritalStatus,numberOfChildren) =>
         (checkAgeBetween(minAge, maxAge)
@@ -112,8 +108,6 @@ trait User {
       case Request(_,_,_,_,_,_) => true
 
     }
-
-    //filteredListByRequest.toList
   }
 
   private def checkClientNumOfChildren(numberOfChildren: Int): Boolean = {
