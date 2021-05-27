@@ -71,6 +71,13 @@ object Start {
     println(s"There are ${listOfUsersStartsWithePrefix.length} users with Prefix name ${request.prefixName}")
 
 
+    println("Task 5:")
+    println("From the client table, get all married men who have more than 2 children. Search by fields: marital status, gender and number of Children")
+    val clientMarriedMenWith2ChildrenList: List[Client] = validClientsList.filter(client => client.maritalStatus.toLowerCase == request.maritalStatus)
+      .filter(client => client.gender.toLowerCase == request.gender)
+      .filter(client => client.numberOfChildren == request.numberOfChildren)
+    println(s"There are ${clientMarriedMenWith2ChildrenList.length} ${request.maritalStatus} ${request.gender} clients with ${request.numberOfChildren} children")
+
     //val filteredUsersListByRequest: List[User] = userList.filter(user => user.filterByRequest(request))
     //val clientsListBy_MS_G_NOC: List[Client] = validClientsList.filter(client => client.filterByRequest(request)) // last task
     val personFirst = validPersonsList.head
