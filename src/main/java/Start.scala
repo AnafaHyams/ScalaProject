@@ -10,11 +10,7 @@ import scala.io.Source
 object Start {
 
   def main(args: Array[String]): Unit = {
-
-    //val path = "examples/src/main/resources/people.json"
-    //val peopleDF = spark.read.json(path)
-
-
+    /*
     println("anafa.hyams@gmail.com".isValidEmail())
     println("anafa.hyams@gmail.com3".isValidEmail())
     println("anafa.hyamsgmail.com".isValidEmail())
@@ -34,7 +30,7 @@ object Start {
     println(negativeAge.isValidAge())
 
     println("*********************************************************")
-
+*/
     println("Read data from excel")
     val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData()
     println("end reading data from excel")
@@ -43,12 +39,12 @@ object Start {
     val personsListFromJson: List[Person] = ReadDataFromJson.readData()
     println("end reading data from json")
 
-
+/*
     //PersonsList
     val personsCSV = Source.fromFile("data/persons.csv").getLines().toList
     val personsList = personsCSV.map(person => person.getPerson(","))
     personsList.foreach(person => println(person))
-
+*/
     // Request
     val requestCSV = Source.fromFile("data/request.csv").getLines().toList
     val requestList = requestCSV.map(request => request.getRequest(","))
