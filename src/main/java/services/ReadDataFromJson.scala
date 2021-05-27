@@ -14,7 +14,7 @@ object ReadDataFromJson {
   val mapper: ObjectMapper = new ObjectMapper
 
   def readData(personsFileName: String): List[Person] = {
-    //val jsonFile = new File(personsFileName)
+    //val jsonFile = new File("data/persons.json")
 
     //val personsList: List[Person] = mapper.readValue(jsonFile, new TypeReference[List[Person]]() {})
     //val personsList: List[Person] = mapper.readValue(jsonFile, new TypeReference[List[Person]]() {}).asJavaCollection.asScala.toList

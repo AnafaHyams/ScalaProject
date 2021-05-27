@@ -42,7 +42,7 @@ object Start {
     val listOfUsersStartsWithePrefix: List[User] = userList.filter(user => user.firstName.startsWith(request.prefixName))
     println("Get all people whose names start with a certain prefix. As like in request.json")
     println(s"There are ${listOfUsersStartsWithePrefix.length} users with Prefix name ${request.prefixName}")
-    
+
     println("Task 5:")
     println("From the client table, get all married men who have more than 2 children. Search by fields: marital status, gender and number of Children")
     val clientMarriedMenWith2ChildrenList: List[Client] = validClientsList.filter(client => client.maritalStatus.toLowerCase == request.maritalStatus)
