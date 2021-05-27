@@ -62,6 +62,15 @@ object Start {
     //var userList: List[User] = Nil
     val userList: List[User] = personsUsersList ::: clientsUsersList
 
+    // Task 3: Filter by age minimum value, maximum value in two tables
+    val listOfUsersWithAgeBetween: List[User] = userList.filter(user => user.age > request.minAge)
+      .filter(user => user.age < request.maxAge)
+    println("Filter by age minimum value, maximum value in two tables")
+    println(s"There are ${listOfUsersWithAgeBetween.length} users with age between ${request.minAge} to ${request.maxAge}")
+
+
+    //val filteredUsersListByRequest: List[User] = userList.filter(user => user.filterByRequest(request))
+    //val clientsListBy_MS_G_NOC: List[Client] = validClientsList.filter(client => client.filterByRequest(request)) // last task
     val personFirst = validPersonsList.head
   }
 
