@@ -2,7 +2,7 @@ package services
 import com.fasterxml.jackson.core.`type`.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import extensions.CSVHandlers.StringExt
-import models.Person
+import models.{Person, Request}
 
 import scala.jdk.CollectionConverters.CollectionHasAsScala
 import scala.jdk.CollectionConverters._
@@ -24,5 +24,13 @@ object ReadDataFromJson {
     val personsList = personsCSV.map(person => person.getPerson(","))
 
     personsList
+  }
+
+  def readRequestData(requestFileName: String): Request = {
+    val requestCSV = Source.fromFile(requestFileName).getLines().toList
+    val requestList = requestCSV.map(request => request.getRequest(","))
+    val request = requestList.head
+
+    request
   }
 }

@@ -3,7 +3,7 @@ package flow
 import extensions.CSVHandlers.StringExt
 import extensions.ListExtensions.{ClientListExtensions, PersonListExtensions}
 import extensions.ObjectTypeChangingExtensions.{SwitchFromClientToUserObject, SwitchFromPersonToUserObject}
-import models.{Client, Person, User}
+import models.{Client, Person, Request, User}
 import services.{DataLocationReader, ReadDataFromExcel, ReadDataFromJson}
 
 import scala.io.Source
@@ -18,9 +18,7 @@ object FlowManager {
     val personsListFromJson: List[Person] = ReadDataFromJson.readData(personsFileName)
 
     // Request
-    val requestCSV = Source.fromFile(requestFileName).getLines().toList
-    val requestList = requestCSV.map(request => request.getRequest(","))
-    val request = requestList.head
+    val request: Request = ReadDataFromJson.readRequestData(requestFileName)
 
     // valid persons and clients list
     val validClientsList: List[Client] = clientsListFromExcel.validate()
