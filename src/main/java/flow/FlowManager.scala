@@ -1,12 +1,10 @@
 package flow
 
-import extensions.CSVHandlers.StringExt
 import extensions.ListExtensions.{ClientListExtensions, PersonListExtensions}
 import extensions.ObjectTypeChangingExtensions.{SwitchFromClientToUserObject, SwitchFromPersonToUserObject}
 import models.{Client, Person, Request, User}
 import services.{DataLocationReader, ReadDataFromExcel, ReadDataFromJson}
 
-import scala.io.Source
 
 object FlowManager {
   def usersFlowManager(): Unit = {
@@ -14,15 +12,12 @@ object FlowManager {
     val personsFileName = DataLocationReader.personFileName
     val requestFileName = DataLocationReader.requestFileName
 
-    val clientsListFromExcel: List[Client] = ReadDataFromExcel.readData(clientsFileName)
-    val personsListFromJson: List[Person] = ReadDataFromJson.readData(personsFileName)
+    // valid persons and clients list
+    val validClientsList: List[Client] = ReadDataFromExcel.readData(clientsFileName).validate()
+    val validPersonsList: List[Person] = ReadDataFromJson.readData(personsFileName).validate()
 
     // Request
     val request: Request = ReadDataFromJson.readRequestData(requestFileName)
-
-    // valid persons and clients list
-    val validClientsList: List[Client] = clientsListFromExcel.validate()
-    val validPersonsList: List[Person] = personsListFromJson.validate()
 
     // creating users list from persons and clients list
     val personsUsersList: List[User] = validPersonsList.map(person => SwitchFromPersonToUserObject(person))
