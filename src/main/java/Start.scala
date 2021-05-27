@@ -1,7 +1,8 @@
 import extensions.CSVHandlers.StringExt
 import extensions.Registry.{getNewIntExtensions, getNewStringExtensions}
 import extensions.ListExtensions.{ClientListExtensions, PersonListExtensions}
-import models.{Client, Person}
+import extensions.ObjectTypeChangingExtensions.{SwitchFromClientToUserObject, SwitchFromPersonToUserObject}
+import models.{Client, Person, User}
 import services.{ReadDataFromExcel, ReadDataFromJson}
 
 import scala.io.Source
@@ -54,9 +55,16 @@ object Start {
     //requestList.foreach(person => println(person))
     val request = requestList.head
 
-
+    // valid persons and clients list
     val validClientsList: List[Client] = clientsListFromExcel.validate()
     val validPersonsList: List[Person] = personsListFromJson.validate()
+
+    // creating users list from persons and clients list
+    val personsUsersList: List[User] = validPersonsList.map(person => SwitchFromPersonToUserObject(person))
+    val clientsUsersList: List[User] = validClientsList.map(client => SwitchFromClientToUserObject(client))
+
+    //var userList: List[User] = Nil
+    val userList: List[User] = personsUsersList ::: clientsUsersList
 
     val personFirst = validPersonsList.head
   }
