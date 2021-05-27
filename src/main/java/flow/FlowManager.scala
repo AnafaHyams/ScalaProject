@@ -43,7 +43,7 @@ object FlowManager {
       .filter(client => client.numberOfChildren == request.numberOfChildren)
     println(s"There are ${clientMarriedMenWith2ChildrenList.length} ${request.maritalStatus} ${request.gender} clients with ${request.numberOfChildren} children")
 
-    //val filteredUsersListByRequest: List[User] = userList.filter(user => user.filterByRequest(request))
+    val filteredUsersListByRequest: List[User] = userList.filter(user => user.filterByRequest(request))
     //val clientsListBy_MS_G_NOC: List[Client] = validClientsList.filter(client => client.filterByRequest(request)) // last task
 
   }
