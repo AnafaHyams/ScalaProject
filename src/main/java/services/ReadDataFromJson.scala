@@ -28,9 +28,8 @@ object ReadDataFromJson {
   }
 
   def readRequestData(requestFileName: String): Request = {
-    val requestCSV = Source.fromFile(requestFileName).getLines().toList
-    val requestList = requestCSV.map(request => request.getRequest(","))
-    val request = requestList.head
+    val requestJsonFile = new File(requestFileName)
+    val request = mapper.readValue(requestJsonFile, new TypeReference[List[Request]]() {}).asJava.asScala.toList.head
 
     request
   }
