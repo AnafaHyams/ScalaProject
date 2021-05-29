@@ -1,7 +1,7 @@
 package flow
 
-import extensions.ListExtensions.{ClientListExtensions, PersonListExtensions}
 import extensions.ObjectTypeChangingExtensions.{SwitchFromClientToUserObject, SwitchFromPersonToUserObject}
+import extensions.Registry.{getNewClientListExtensions, getNewPersonListExtensions}
 import models.{Client, Person, Request, User}
 import services.{DataLocationReader, ReadDataFromExcel, ReadDataFromJson}
 
